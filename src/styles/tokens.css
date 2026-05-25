@@ -1,0 +1,151 @@
+/**
+ * DESIGN TOKENS - Centralized Theme System
+ * 
+ * This file contains ALL color tokens for the portfolio.
+ * To change the theme:
+ * 1. Edit values in :root (light) or .dark (dark mode)
+ * 2. Or import a theme preset from src/config/themePresets.ts
+ * 
+ * Token Hierarchy:
+ * - --primary: Main brand accent (buttons, glows, highlights)
+ * - --secondary: Secondary accent
+ * - --accent: Tertiary accent (used sparingly)
+ * - --background: Page background
+ * - --surface: Card/component backgrounds
+ * - --surface-2: Elevated surfaces
+ * - --text: Primary text
+ * - --text-muted: Secondary/subdued text
+ * - --border: Dividers and borders
+ * - --glow: For glow effects (typically primary with alpha)
+ * - --glass: Glassmorphism backgrounds
+ * 
+ * RGB variants (for rgba() usage):
+ * - --primary-rgb: "78 15 70" (used for rgba(var(--primary-rgb), alpha))
+ * - --surface-rgb: "12 5 260" (for glass effects)
+ * - --background-rgb: "8 5 260" (for gradients)
+ * 
+ * CONTROL THIS FILE TO:
+ * - Change brand colors globally
+ * - Create new theme presets
+ * - Enable runtime theme switching
+ * - Support dark/light mode
+ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════ */
+  /* PREMIUM DARK THEME - Current (Gold/Amber Tech)                          */
+  /* ═══════════════════════════════════════════════════════════════════════ */
+  
+  /* ─── Brand Colors ─── */
+  --primary: oklch(0.78 0.15 70);        /* Gold/Amber - main brand color */
+  --primary-rgb: 201 168 76;            /* RGB for rgba() usage */
+  --secondary: oklch(0.75 0.13 60);     /* Secondary gold tone */
+  --secondary-rgb: 191 166 60;
+  --accent: oklch(0.72 0.20 290);       /* Violet accent (optional) */
+  --accent-rgb: 183 102 232;
+  
+  /* ─── Backgrounds ─── */
+  --background: oklch(0.08 0.005 260);   /* Ultra-deep black-navy */
+  --background-rgb: 8 5 260;
+  --surface: oklch(0.12 0.005 260);     /* Dark translucent card base */
+  --surface-rgb: 12 5 260;
+  --surface-2: oklch(0.09 0.005 260);   /* Section backgrounds */
+  --surface-2-rgb: 9 5 260;
+  --glass: oklch(0.1 0.005 260 / 0.4);  /* Glassmorphism base */
+  
+  /* ─── Text Colors ─── */
+  --text: oklch(0.94 0.004 250);         /* Crisp technical white */
+  --text-muted: oklch(0.65 0.01 260);   /* Refined soft gray */
+  --text-secondary: oklch(0.5 0.012 260);
+  
+  /* ─── Borders & Dividers ─── */
+  --border: oklch(1 0 0 / 6%);           /* Ultra-crisp hairline border */
+  --border-rgb: 255 255 255;
+  --border-subtle: oklch(1 0 0 / 9%);    /* Input borders */
+  
+  /* ─── Glow Effects ─── */
+  --glow: oklch(0.78 0.15 70 / 0.35);   /* Primary glow base */
+  --glow-intense: oklch(0.78 0.15 70 / 0.5);
+  --glow-subtle: oklch(0.78 0.15 70 / 0.15);
+  
+  /* ─── Semantic Colors ─── */
+  --success: oklch(0.74 0.17 160);      /* Emerald */
+  --warning: oklch(0.78 0.15 70);       /* Same as primary */
+  --error: oklch(0.6 0.18 25);          /* Rose */
+  --info: oklch(0.75 0.18 200);         /* Cyan/Teal */
+  
+  /* ─── Shadows ─── */
+  --shadow-sm: oklch(0 0 0 / 0.3);
+  --shadow-md: oklch(0 0 0 / 0.5);
+  --shadow-lg: oklch(0 0 0 / 0.7);
+  --shadow-glow: oklch(0.78 0.15 70 / 0.2);
+  
+  /* ─── RGB Aliases for Easy rgba() Usage ─── */
+  --color-rgb-primary: var(--primary-rgb);
+  --color-rgb-surface: var(--surface-rgb);
+  --color-rgb-background: var(--background-rgb);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* LIGHT THEME (Defined but not currently active)                           */
+/* ═══════════════════════════════════════════════════════════════════════ */
+:root.light {
+  /* ─── Brand Colors ─── */
+  --primary: oklch(0.62 0.19 28);       /* Darker gold for light bg */
+  --primary-rgb: 158 48 71;
+  --secondary: oklch(0.55 0.15 40);
+  --secondary-rgb: 140 38 102;
+  --accent: oklch(0.65 0.20 280);
+  --accent-rgb: 165 102 230;
+  
+  /* ─── Backgrounds ─── */
+  --background: oklch(0.99 0.002 250);  /* Near white */
+  --background-rgb: 253 1 254;
+  --surface: oklch(0.96 0.005 250);    /* Light gray surface */
+  --surface-rgb: 245 1 254;
+  --surface-2: oklch(0.92 0.005 250);
+  --surface-2-rgb: 235 1 254;
+  --glass: oklch(1 0 0 / 0.5);
+  
+  /* ─── Text Colors ─── */
+  --text: oklch(0.18 0.015 260);       /* Near black */
+  --text-muted: oklch(0.5 0.012 260);
+  --text-secondary: oklch(0.4 0.01 260);
+  
+  /* ─── Borders ─── */
+  --border: oklch(0.92 0.006 255);
+  --border-rgb: 235 2 255;
+  --border-subtle: oklch(0.94 0.004 255);
+  
+  /* ─── Glow Effects ─── */
+  --glow: oklch(0.62 0.19 28 / 0.2);
+  --glow-intense: oklch(0.62 0.19 28 / 0.35);
+  --glow-subtle: oklch(0.62 0.19 28 / 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* THEME PRESETS - Ready-to-use color schemes                               */
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* 
+ * To use a preset:
+ * 1. Import the desired preset colors from themePresets.ts
+ * 2. Apply them via CSS variables or a ThemeProvider component
+ * 
+ * Available Presets (in themePresets.ts):
+ * - premiumDark: Current gold/amber tech theme
+ * - minimalLight: Clean white/minimal theme  
+ * - cyberBlue: Cyan/blue futuristic theme
+ */
+
+/* Utility classes for theme-aware colors - USE THESE INSTEAD OF HARDCODED */
+.theme-primary { color: var(--primary); }
+.theme-primary-rgb { color: rgb(var(--primary-rgb)); }
+.theme-surface { background: var(--surface); }
+.theme-glass { background: var(--glass); }
+.theme-glow { box-shadow: 0 0 20px var(--glow); }
+.theme-border { border-color: var(--border); }
+
+/* RGB helper for rgba() - Usage: rgba(var(--primary-rgb), 0.5) */
+.rgb-primary { --rgb: var(--primary-rgb); }
+.rgb-surface { --rgb: var(--surface-rgb); }
+.rgb-background { --rgb: var(--background-rgb); }
